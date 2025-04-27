@@ -1,0 +1,30 @@
+[project]
+name = "nft-gift-finder"
+version = "3.0.0"
+description = "nft gift finder"
+authors = [{ name = "Ilnaz Mingaleev", email = "ilnazmingaleev0@gmail.com" }]
+requires-python = "~=3.13"
+readme = "README.md"
+dependencies = [
+    "aiomysql>=0.2.0",
+    "alembic>=1.15.2",
+    "fastapi>=0.115.12",
+    "pydantic-settings>=2.9.1",
+    "redis>=5.2.1",
+    "sqlalchemy>=2.0.40",
+    "uvicorn>=0.34.2",
+]
+
+[project.scripts]
+start = "src.run:start"
+migration = "src.migration:main"
+
+[tool.hatch.build.targets.sdist]
+include = ["src"]
+
+[tool.hatch.build.targets.wheel]
+include = ["src"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
